@@ -13,24 +13,24 @@ class Async extends Component {
 
   constructor(props) {
     super(props)
-    this.handleAdd = this.handleAdd.bind(this)
-    this.handleMinus = this.handleMinus.bind(this)
+    this.handleAsyncAdd = this.handleAsyncAdd.bind(this)
+    this.handleAsyncMinus = this.handleAsyncMinus.bind(this)
   }
 
   render () {
     return (
       <div className={'btn-wrapper'}>
-        <Button className={'ez-btn'} onClick={this.handleAdd} ><Icon type="plus" />Add~</Button>
-        <Button className={'ez-btn'} onClick={this.handleMinus}  ><Icon type="minus" />Minus~</Button>
+        <Button className={'ez-btn'} onClick={this.handleAsyncAdd} ><Icon type="plus" />Add~</Button>
+        <Button className={'ez-btn'} onClick={this.handleAsyncMinus}  ><Icon type="minus" />Minus~</Button>
       </div>
     )
   }
 
-  handleAdd () {
+  handleAsyncAdd () {
     this.props.async_add()
   }
 
-  handleMinus () {
+  handleAsyncMinus () {
     this.props.async_subtract()
   }
 

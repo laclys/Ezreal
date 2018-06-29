@@ -6,30 +6,30 @@ import { add, subtract} from '../../action/simple.action'
 import './style.styl'
 @connect(
   state => state,
-  {add, subtract}
+  { add, subtract }
 )
 class Simple extends Component {
 
   constructor(props) {
     super(props)
-    this.handleAdd = this.handleAsyncAdd.bind(this)
-    this.handleMinus = this.handleAsyncMinus.bind(this)
+    this.handleAdd = this.handleAdd.bind(this)
+    this.handleMinus = this.handleMinus.bind(this)
   }
 
   render () {
     return (
       <div className={'btn-wrapper'}>
-        <Button className={'ez-btn'} onClick={this.handleAsyncAdd} ><Icon type="plus" />Add</Button>
-        <Button className={'ez-btn'} onClick={this.handleAsyncMinus}  ><Icon type="minus" />Minus</Button>
+        <Button className={'ez-btn'} onClick={this.handleAdd} ><Icon type="plus" />Add</Button>
+        <Button className={'ez-btn'} onClick={this.handleMinus}  ><Icon type="minus" />Minus</Button>
       </div>
     )
   }
 
-  handleAsyncAdd () {
+  handleAdd () {
     this.props.add()
   }
 
-  handleAsyncMinus () {
+  handleMinus () {
     this.props.subtract()
   }
 
