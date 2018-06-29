@@ -15,7 +15,7 @@ export default (state = initState, action) => {
     case SUBTRACT_NUM:
       {
         const _state = {...state}
-       _state.num = _state.num + 1
+       _state.num = _state.num - 1
        return _state
       }
     default:
