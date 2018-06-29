@@ -8,7 +8,7 @@ import {BrowserRouter} from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker'
 
 import sagaRoot from './saga/saga'
-import reducer from './reducers/simple.reducer'
+import reducer from './reducers/reducer'
 import App from './App'
 
 const sagaMiddleware = createSagaMiddleware()
