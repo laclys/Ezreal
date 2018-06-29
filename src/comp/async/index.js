@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Button, Icon, Spin } from 'antd' 
 import { connect } from 'react-redux'
 import { async_add, async_subtract } from '../../action/async.action'
+import { PENDING } from '../../constants/async_status'
 
 import './style.styl'
 
@@ -20,7 +21,7 @@ class Async extends Component {
   render () {
     const { status } = this.props
 
-    if (status === 'PENDING') {
+    if (status === PENDING) {
       return (
         <div style={{textAlign: 'center'}}>
           <Spin />
