@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Icon } from 'antd' 
+import { Button, Icon, Spin } from 'antd' 
 import { connect } from 'react-redux'
 import { async_add, async_subtract } from '../../action/async.action'
 
@@ -18,6 +18,16 @@ class Async extends Component {
   }
 
   render () {
+    const { status } = this.props
+
+    if (status === 'PENDING') {
+      return (
+        <div style={{textAlign: 'center'}}>
+          <Spin />
+        </div>
+      )
+    }
+
     return (
       <div className={'btn-wrapper'}>
         <Button className={'ez-btn'} onClick={this.handleAsyncAdd} ><Icon type="plus" />Add~</Button>
