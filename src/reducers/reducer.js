@@ -1,6 +1,7 @@
 import { ADD_NUM, SUBTRACT_NUM } from '../action-type/simple.action-type'
 import { ASYNC_ADD_NUM, ASYNC_SUBTRACT_NUM } from '../action-type/async.action-type'
 import { PENDING, SUCCESS } from '../constants/async_status'
+import { updateChain } from 'immutability-helper-x'
 
 const initState = {
   num: 0,
@@ -10,31 +11,12 @@ const initState = {
 export default (state = initState, action) => {
   switch (action.type) {
     case ADD_NUM:
-      {
-        const _state = {...state}
-        _state.num = _state.num + 1
-        _state.status = SUCCESS
-        return _state
-      }
+      return updateChain(state).$apply('num', val => val + 1).$set('status', SUCCESS).value()
     case SUBTRACT_NUM:
-      {
-        const _state = {...state}
-       _state.num = _state.num - 1
-       _state.status = SUCCESS
-       return _state
-      }
+      return updateChain(state).$apply('num', val => val - 1).$set('status', SUCCESS).value()
     case ASYNC_ADD_NUM:
-      {
-        const _state = {...state}
-        _state.status = PENDING
-        return _state
-      }
     case ASYNC_SUBTRACT_NUM:
-      {
-        const _state = {...state}
-        _state.status = PENDING
-        return _state
-      }
+      return updateChain(state).$set('status', PENDING).value()
     default:
       return state
   }
